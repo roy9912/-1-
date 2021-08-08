@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <title>WEB2</title>
+</head>
+
+<body>
+<h1><strong>엑세스</strong></h1>
+<br>
+<h2><strong>폼을 가져오는 경로</strong></h2>
+현재폼 : [컨트롤명]
+외부폼 : [forms]![폼이름]![컨트롤명]
+하위폼 : [폼이름].form![컨트롤명]
+
+<h2><strong>SQL문 (docmd.RunSQL / Not in / 레코드원본설정 Me.RecordSource)</strong></h2>
+검색 : “select 필드명(*) from 테이블명 where 조건”
+<br>
+갱신 : “update 테이블명 set 변경내용 where 조건” ------ 변경내용 : 작은따옴표
+<br>
+삭제 : “delete 필드명 from 테이블명 where 조건”
+<br>
+추가 : “insert into 테이블(필드1.필드) values (값1, 값2)”
+<br>
+새로고침 : me.requery
+<br>
+새 레코드로 이동하라 docmd.GoToRecord
+<br>
+레코드 원본 설정 : docmd. Gotorecord acDataForm “구입기자재입력” , acnewrec
+<br>
+Me.RecordsetClone.Findfirst “조건”
+<br>
+Me.bookmark = Me.RecordsetClone.bookmark
+<br>
+<h2><strong>데이터베이스 함수 : =함수명( “계산될 필드”, “원본 끌어오는 테이블(쿼리)” , “조건”)</strong></h2>
+<br>
+관계 설정할 때 다 대 다일 경우 징검다리 테이블의 외래키 묶음을 기본키로 설정
+<br>
+짧은 텍스트 : 255자까지 바이트: 255자까지
+<br>
+삽입쿼리는 모든 필드를 삽입해야 하고 삭제, 업데이트 쿼리에서는 조건의 필드만 가져오면 된다. 관계 설정 시 오류 발생으로 인하여 필드를 삭제해야 할 때는 삭제할 대상이 있는 테이블을 기준으로 쿼리를 작성한다. 즉 M:1이라면 M쪽의 테이블을 가져와서 업데이트쿼리 생성 (1이 메뉴, M이 주문내역이라고 생각)
+<br>
+대문자로 : upper / ucase
+<br>
+소문자로 : lower / lcase
+<br>
+Instr (필드명, “찾는 문자열”) - 공백이 없어야 할 때 응용 가능
+<br>
+엑셀 공백 “ “ / 엑세스 공백 is null
+<br>
+Me.filter = “조건”
+<br>
+Me.orderby = “필드 옵션”
+</body>
+</html>
